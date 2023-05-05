@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load filters %}
+
+
+{% block title %}
+NEW
+{% endblock title %}
+
+{% block content %}
+
+<h1>{{ postdetail.title | censor }}</h1>
+<h4>{{ postdetail.dateCreation|date:'d M Y, H:m'  }}</h4>
+<p>{{ postdetail.text | censor }}</p>
+
+{% endblock content %}

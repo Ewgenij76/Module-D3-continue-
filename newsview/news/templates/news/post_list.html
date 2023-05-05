@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load filters %}
+
+{% block title %}
+News Portal
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все новости -->
+{% block content %}
+
+
+<div class="">
+    <h1>Новости</h1>
+    <hr>
+    <h3>{{ time_now|date:'d M Y' }}</h3>
+    <br>
+    <h1>Всего новостей: {{postlist|length}}</h1>
+    <br>
+{% if postlist %}
+    <table style="margin: auto" border="2">
+        <tr>
+            <th>
+                Заголовок
+            </th>
+            <th>
+                Дата публикации
+            </th>
+            <th>
+                Статья
+            </th>
+        </tr>
+{% for new in postlist %}
+        <tr>
+            <td>
+                {{ new.title|censor }}
+            </td>
+            <td>
+                {{ new.dateCreation|date:'d M Y'  }}
+            </td>
+            <td>
+                {{ new.text|truncatechars:50|censor }}
+            </td>
+        </tr>
+{% endfor %}
+    </table>
+{% else %}
+    <h2>Новостей нет!</h2>
+{% endif %}
+</div>
+
+{% endblock content %}
+
