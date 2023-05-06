@@ -15,12 +15,12 @@ def censor(value):
             if i in bad_words:
                 y = a.index(i)
                 a.remove(i)
-                a.insert(y, '@!%&!')
+                a.insert(y, '*****')
                 value = (" ".join(a))
                 return value
 
     if x in bad_words:
-        x = '@!%&!'
+        x = '*****'
         return x
     else:
         return x
