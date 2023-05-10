@@ -4,6 +4,6 @@ from .views import *
 
 urlpatterns = [
     path('', PostList.as_view()),
-    path('postdetail/<int:pk>/', PostDetail.as_view()),
+    path('<int:pk>/', PostDetail.as_view()),
 
 ]
